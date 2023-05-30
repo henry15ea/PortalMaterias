@@ -30,6 +30,8 @@ class loginModel {
       'password': _password
     });
    
+
+
     if (response.statusCode == 200) {
           jsonResponse = jsonDecode(response.body);
           var tokenStatus = jsonResponse['Estado']['tokenValidateStatus'];

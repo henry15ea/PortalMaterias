@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:portaluni/fragments/pantallacarreras.dart';
+import 'package:portaluni/fragments/pantallafacultades.dart';
 import 'package:portaluni/fragments/pantallausuario.dart';
 import 'package:portaluni/modules/navbar.dart';
 import 'dart:convert';
@@ -50,6 +52,10 @@ class _initialScreenState extends State<initialScreen> {
             icon: Icon(Icons.list),
             label: 'facultades',
           ),
+           NavigationDestination(
+            icon: Icon(Icons.list),
+            label: 'Carreras',
+          ),
           NavigationDestination(
             icon: Icon(Icons.person),
             label: 'Perfil',
@@ -70,7 +76,12 @@ class _initialScreenState extends State<initialScreen> {
         Container(
           color: Color.fromARGB(255, 232, 209, 245),
           alignment: Alignment.center,
-          child: const Text('Page 2'),
+          child: pantallafacultades(),
+        ),
+        Container(
+          color: Color.fromARGB(255, 232, 209, 245),
+          alignment: Alignment.center,
+          child: pantallaCarreras()
         ),
         Container(
           color: Color.fromARGB(255, 232, 209, 245),

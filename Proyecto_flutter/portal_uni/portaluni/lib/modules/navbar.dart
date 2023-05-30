@@ -25,7 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
 Container _fn_customItems(title){
 return Container(
-      height: 60,
+      height: 57,
       padding: EdgeInsets.symmetric(horizontal: 10.0),
       decoration: BoxDecoration(color: Color.fromARGB(255, 138, 0, 108)),
       child: Row(
