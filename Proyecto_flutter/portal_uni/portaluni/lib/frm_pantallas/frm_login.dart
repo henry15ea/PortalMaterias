@@ -4,7 +4,8 @@ import 'package:portaluni/modules/topbar.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 
 import '../models/loginModel.dart';
-
+import '../utils/api_routes.dart';
+import 'package:http/http.dart' as http;
 
 class frmLogin extends StatefulWidget {
   //frmLogin({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _frmLoginState extends State<frmLogin> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 212, 205, 210),
-      body: Container(
+      body: SingleChildScrollView(
         
         child: Column(
           children: [
@@ -134,6 +135,8 @@ Column _formulario(context) {
       ElevatedButton(
         
         onPressed: () async {
+
+              
                 Mlogin.userName = _txtUser.text.trim();
                 Mlogin.password = _txtPass.text.trim();
                 var isLoggedIn = await Mlogin.fn_login();
