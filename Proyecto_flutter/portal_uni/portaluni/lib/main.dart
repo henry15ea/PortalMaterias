@@ -3,6 +3,8 @@ import 'package:portaluni/utils/routes.dart';
 import 'package:portaluni/frm_pantallas/frm_login.dart';
 import 'package:portaluni/frm_pantallas/frm_initialscreen.dart';
 
+import 'fragments/pantallamaterias.dart';
+
 void main() {
   runApp(Principal());
 }
@@ -24,7 +26,7 @@ class Principal extends StatelessWidget {
         '/facultades': (context) =>
             Principal(), //pantalla de listado de carreras
         '/carreras': (context) => Principal(), //pantalla de listado de carreras
-        '/materias': (context) => Principal(), //pantalla de listado de materias
+        '/materias': (context) => materiasByCarrera(), //pantalla de listado de materias
         '/perfil': (context) =>
             Principal(), //pantalla de listado de perfil de usuario
         '/acerca': (context) =>

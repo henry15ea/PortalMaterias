@@ -83,7 +83,7 @@ Column _formulario(context) {
           child: TextFormField(
              controller: _txtUser,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              maxLength: 10,
+              maxLength: 8,
               autofocus: true,
               decoration: InputDecoration(
                 hintText: 'Usuario',

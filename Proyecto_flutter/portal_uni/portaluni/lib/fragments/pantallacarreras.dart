@@ -21,21 +21,20 @@ class _pantallaCarrerasState extends State<pantallaCarreras> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var jsonResponse;
     List<carreras> cars=[];
-    print("token:_____________________________________");
-    print(prefs.get('token_id'));
-    print("token:_____________________________________");
+   
     // try {
     var url = Uri.http($_HostNamed, $routes['/carreras']);
     var response = await http.post(url,body: {
       'token_id':prefs.get('token_id')
     });
    
-    if (response.statusCode == 200) {
+
+    if (response.statusCode == 200 || response.statusCode == 401) {
           jsonResponse = jsonDecode(response.body);
-          var tokenStatus = jsonResponse['Estado']['tokenValidateStatus'];
-          print(jsonResponse['Estado']['data_api']);
+          var tokenStatus = jsonResponse['estado']['tokenValidateStatus'];
+
           if (tokenStatus == true) {
-            for (var item in jsonResponse['Estado']['data_api']){
+            for (var item in jsonResponse['estado']['data_api']){
               cars.add(carreras(cid:item['cid'],cnombre:item['cnombre']));
             }
             
@@ -81,7 +80,7 @@ class _pantallaCarrerasState extends State<pantallaCarreras> {
     
   }
 
-  List<Widget> _listadocarreras(List<carreras>data){
+  List<Widget> _listadocarreras(List<carreras>data){ 
     List<Widget> carss=[];
     for(var car in data){
       carss.add(
@@ -89,16 +88,28 @@ class _pantallaCarrerasState extends State<pantallaCarreras> {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             child: Center(
-              child: Text(
+              child: Container(
+                child: TextButton(
+                  onPressed: () {
+                    print(car.cid);
+                    
+                    Navigator.pushNamed(context, '/materias',
+                                  arguments: {
+                                    "id_carrera":car.cid
+                            });
+                  },
+                  child: Text(
                 car.cnombre,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 20
+                  fontSize: 16
                 ),
                 textAlign: TextAlign.center,
               ),
+                ),
+              ),
             ), 
-            height: 50,
+            height: 60,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: Color.fromARGB(255, 97, 0, 69),

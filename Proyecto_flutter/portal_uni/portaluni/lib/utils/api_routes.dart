@@ -11,7 +11,7 @@ Map<String, dynamic> $routes ={
     "/facultades":  "/portal/public/facultadlist",
     "/carreras": "/portal/public/carreralist",
     "/listado_materias": "/portal/public/listadomaterias",
-    "/listado_materias_rel": "/portal/public/materiasrel",
+    "/listado_materias_rel": "/portal/public/materialrel",
     "/perfil": "/portal/public/perfil"
  };
 

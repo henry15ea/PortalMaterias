@@ -27,12 +27,12 @@ class _pantallafacultadesState extends State<pantallafacultades> {
       'token_id':prefs.get('token_id')
     });
    
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 || response.statusCode == 401) {
           jsonResponse = jsonDecode(response.body);
-          var tokenStatus = jsonResponse['Estado']['tokenValidateStatus'];
-          print(jsonResponse['Estado']['data_api']);
+          var tokenStatus = jsonResponse['estado']['tokenValidateStatus'];
+          //print(jsonResponse['Estado']['data_api']);
           if (tokenStatus == true) {
-            for (var item in jsonResponse['Estado']['data_api']){
+            for (var item in jsonResponse['estado']['data_api']){
               facults.add(facultades(f_detalle:item['f_detalle'],f_nombre:item['f_nombre']));
             }
             
