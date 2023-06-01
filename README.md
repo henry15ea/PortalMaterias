@@ -1,5 +1,5 @@
 # PortalMaterias
-Proyecto desarrollado en flutter que muestra el listado de materias segun la carrera que seleccione , simula un portal de alumno. 
+Proyecto final de materia , Desarrollado en flutter que muestra el listado de materias segun la carrera que seleccione , usando un servicio API REST el proyecto simula un portal de alumno inspirado en el portal UTEC SV. 
 
 Capturas de pantalla :
 
